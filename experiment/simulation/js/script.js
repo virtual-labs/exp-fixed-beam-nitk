@@ -319,13 +319,13 @@ const setMediaQueries = function (ctx) {
     // originalX = canvas.width / 4 - 10;
     scaleY = 0.5;
   } else if (mediaQuery3.matches) {
-    scaleX = 1;
+    scaleX = 0.9;
     originalX = canvas.width / 4 - 10;
-    scaleY = 0.4;
+    scaleY = 0.7;
   } else if (mediaQuery4.matches) {
-    scaleX = 0.7;
+    scaleX = 0.8;
     originalX = canvas.width / 4 - 10;
-    scaleY = 0.4;
+    scaleY = 0.5;
   } else if (mediaQuery5.matches) {
     scaleX = 0.6;
     originalX = canvas.width / 4 - 10;
@@ -350,7 +350,7 @@ const draw = function () {
     size: endmass === 0 ? 0 : 15 + endmass / 50,
     draw: function () {
       ctx.beginPath();
-      ctx.arc(ball.xpos, ball.ypos, ball.size, 0, 2 * Math.PI, false);
+      ctx.arc(ball.xpos, ball.ypos-76 , ball.size, 0, 2 * Math.PI, false);
       ctx.lineWidth = 3;
       ctx.strokeStyle = "brown";
       ctx.stroke();
@@ -367,7 +367,7 @@ const draw = function () {
         ((4 * y * i * i) / Math.pow(beamlength / 5 + 100, 3)) *
           (3 * (beamlength / 5 + 100) - 4 * i) -
           10 +
-          210,
+          135,
         1,
         15
       );
@@ -381,15 +381,15 @@ const draw = function () {
         ((4 * y * i * i) / Math.pow(beamlength / 5 + 100, 3)) *
           (3 * (beamlength / 5 + 100) - 4 * i) -
           10 +
-          210,
+          135,
         1,
         15
       );
     }
     ctx.restore();
     ctx.fillStyle = "black";
-    ctx.fillRect(0, 155, 25, 100);
-    ctx.fillRect(beamlength / 5 + 25 + 100, 155, 25, 100);
+    ctx.fillRect(0, 80, 25, 100);
+    ctx.fillRect(beamlength / 5 + 25 + 100, 80, 25, 100);
   }
   ctx.clearRect(0, 0, 550, 400);
   beamdef(ball.ypos - 210);
@@ -397,83 +397,158 @@ const draw = function () {
   generateGraph();
 };
 
+// function generateGraph() {
+//   // Graph 1
+//   var graph1X = setMediaQueries(graphctx1);
+//   graphctx1.canvas.width = document.documentElement.clientWidth * scaleX;
+//   graphctx1.canvas.height = document.documentElement.clientHeight * scaleY;
+//   graphctx1.clearRect(0, 0, graphCanvas1.width, graphCanvas1.height);
+//   graphctx1.font = "2rem Comic sans MS";
+//   graphctx1.save();
+//   graphctx1.translate(0, 225);
+//   graphctx1.rotate(-Math.PI / 2);
+//   graphctx1.fillText("Displacement", 0, 15);
+//   graphctx1.restore();
+//   graphctx1.fillText("Time", 150, 320);
+//   graphctx1.beginPath();
+
+//   graphctx1.moveTo(20, 70);
+//   graphctx1.lineTo(20, 320);
+//   graphctx1.moveTo(20, 185);
+//   graphctx1.lineTo(graphCanvas1.width-30, 185);
+//   graphctx1.strokeStyle = "black";
+//   graphctx1.stroke();
+//   graphctx1.closePath();
+
+//   graphctx1.beginPath();
+//   graphctx1.moveTo(20, 185);
+//   var i = 0;
+//   graphctx1.strokeStyle = "green";
+//   graphctx1.lineWidth = 1;
+//   while (i < (graphCanvas1.width-50)) {
+//     graphctx1.lineTo(i + 20, 185 - (0.9 * actdisplace(0.00006 * i)) / 5);
+//     graphctx1.moveTo(i + 20, 185 - (0.9 * actdisplace(0.00006 * i)) / 5);
+//     i += 0.01;
+//   }
+//   graphctx1.stroke();
+
+//   // Graph 2
+//   var graph2X = setMediaQueries(graphctx2);
+//   graphctx2.canvas.width = document.documentElement.clientWidth * scaleX;
+//   graphctx2.canvas.height = document.documentElement.clientHeight * scaleY;
+//   graphctx2.clearRect(0, 0, graphCanvas2.width, graphCanvas2.height);
+//   graphctx2.font = "3rem Comic sans MS";
+//   graphctx2.beginPath();
+//   graphctx2.strokeStyle = "black";
+//   graphctx2.moveTo(20, 300);
+//   graphctx2.lineTo(20, 100);
+//   graphctx2.moveTo(20, 300);
+//   graphctx2.lineTo(520, 300);
+//   graphctx2.stroke();
+//   graphctx2.save();
+//   graphctx2.translate(10, 345);
+//   graphctx2.rotate(-Math.PI / 2);
+//   graphctx2.fillText("Amplitude", 75, 5);
+//   graphctx2.restore();
+//   graphctx2.fillText("Frequency(rad/s)", 170, 320);
+//   graphctx2.strokeStyle = "#800080";
+//   graphctx2.lineWidth = 1;
+//   graphctx2.moveTo(350, 345);
+//   function amplitude(n) {
+//     return 20 / Math.sqrt(Math.pow(1 - n * n, 2) + Math.pow(2 * 0.05 * n, 2));
+//   }
+//   var j = 0;
+//   graphctx2.beginPath();
+//   while (j < 300) {
+//     graphctx2.lineTo(j + 50, 280 - 0.9 * amplitude(0.01 * j));
+//     graphctx2.moveTo(j + 50, 280 - 0.9 * amplitude(0.01 * j));
+//     j += 0.01;
+//   }
+//   graphctx2.stroke();
+//   graphctx2.beginPath();
+//   graphctx2.strokeStyle = "green";
+//   graphctx2.moveTo(150, 310);
+//   graphctx2.lineTo(150, 100);
+//   graphctx2.stroke();
+//   graphctx2.font = "2rem Comic sans MS";
+//   graphctx2.fillText("\u03C9d= " + wd.toFixed(3) + "rad/s", 245, 270);
+// }
 function generateGraph() {
   // Graph 1
-  var graph1X = setMediaQueries(graphctx1);
+  let graph1X = setMediaQueries(graphctx1);
   graphctx1.canvas.width = document.documentElement.clientWidth * scaleX;
   graphctx1.canvas.height = document.documentElement.clientHeight * scaleY;
   graphctx1.clearRect(0, 0, graphCanvas1.width, graphCanvas1.height);
   graphctx1.font = "2rem Comic sans MS";
   graphctx1.save();
-  graphctx1.translate(0, 225);
+  graphctx1.translate(0, 125);
   graphctx1.rotate(-Math.PI / 2);
-  graphctx1.fillText("Displacement", 0, 15);
+  graphctx1.fillText("Displacement", -60, 15);
   graphctx1.restore();
-  graphctx1.fillText("Time", 150, 320);
+  graphctx1.fillText("Time", 150, 230);
   graphctx1.beginPath();
 
-  graphctx1.moveTo(20, 70);
-  graphctx1.lineTo(20, 320);
-  graphctx1.moveTo(20, 185);
-  graphctx1.lineTo(graphCanvas1.width-30, 185);
+  graphctx1.moveTo(20, 20); //changed
+  graphctx1.lineTo(20, 250);
+  graphctx1.moveTo(20, 125);
+  graphctx1.lineTo(graphCanvas1.width, 125);
   graphctx1.strokeStyle = "black";
   graphctx1.stroke();
   graphctx1.closePath();
 
   graphctx1.beginPath();
-  graphctx1.moveTo(20, 185);
-  var i = 0;
+  graphctx1.moveTo(20, 125);
+  let i = 0;
   graphctx1.strokeStyle = "green";
   graphctx1.lineWidth = 1;
-  while (i < (graphCanvas1.width-50)) {
-    graphctx1.lineTo(i + 20, 185 - (0.9 * actdisplace(0.00006 * i)) / 5);
-    graphctx1.moveTo(i + 20, 185 - (0.9 * actdisplace(0.00006 * i)) / 5);
+  while (i < graphCanvas1.width) {
+    graphctx1.lineTo(i + 20, 125 - (0.9 * actdisplace(0.003 * i)) / 5);
+    graphctx1.moveTo(i + 20, 125 - (0.9 * actdisplace(0.003 * i)) / 5);
     i += 0.01;
   }
   graphctx1.stroke();
 
   // Graph 2
-  var graph2X = setMediaQueries(graphctx2);
+  let graph2X = setMediaQueries(graphctx2);
   graphctx2.canvas.width = document.documentElement.clientWidth * scaleX;
   graphctx2.canvas.height = document.documentElement.clientHeight * scaleY;
   graphctx2.clearRect(0, 0, graphCanvas2.width, graphCanvas2.height);
   graphctx2.font = "2rem Comic sans MS";
   graphctx2.beginPath();
   graphctx2.strokeStyle = "black";
-  graphctx2.moveTo(20, 300);
-  graphctx2.lineTo(20, 100);
-  graphctx2.moveTo(20, 300);
-  graphctx2.lineTo(520, 300);
+  graphctx2.moveTo(20, 230);
+  graphctx2.lineTo(20, 35);
+  graphctx2.moveTo(20, 230);
+  graphctx2.lineTo(520, 230);
   graphctx2.stroke();
   graphctx2.save();
   graphctx2.translate(10, 345);
   graphctx2.rotate(-Math.PI / 2);
-  graphctx2.fillText("Amplitude", 75, 5);
+  graphctx2.fillText("Amplitude", 170, 5);
   graphctx2.restore();
-  graphctx2.fillText("Frequency(rad/s)", 170, 320);
+  graphctx2.fillText("Frequency(rad/s)", 10, 260);
   graphctx2.strokeStyle = "#800080";
   graphctx2.lineWidth = 1;
   graphctx2.moveTo(350, 345);
   function amplitude(n) {
     return 20 / Math.sqrt(Math.pow(1 - n * n, 2) + Math.pow(2 * 0.05 * n, 2));
   }
-  var j = 0;
+  let j = 0;
   graphctx2.beginPath();
   while (j < 300) {
-    graphctx2.lineTo(j + 50, 280 - 0.9 * amplitude(0.01 * j));
-    graphctx2.moveTo(j + 50, 280 - 0.9 * amplitude(0.01 * j));
+    graphctx2.lineTo(j + 50, 225 - 0.9 * amplitude(0.01 * j));
+    graphctx2.moveTo(j + 50, 225 - 0.9 * amplitude(0.01 * j));
     j += 0.01;
   }
   graphctx2.stroke();
   graphctx2.beginPath();
   graphctx2.strokeStyle = "green";
-  graphctx2.moveTo(150, 310);
-  graphctx2.lineTo(150, 100);
+  graphctx2.moveTo(150, 260);
+  graphctx2.lineTo(150, 45);
   graphctx2.stroke();
   graphctx2.font = "2rem Comic sans MS";
-  graphctx2.fillText("\u03C9d= " + wd.toFixed(3) + "rad/s", 245, 270);
+  graphctx2.fillText("\u03C9d= " + wd.toFixed(3) + "rad/s", 100, 40);
 }
-
 function plotgraph() {
   const graphDiv = document.querySelectorAll(".graph-div");
   graphDiv.forEach((graph) => {
@@ -511,7 +586,7 @@ const selectSection = function () {
   } else {
     otherSec.classList.add("display-flex");
     otherSec.classList.remove("display-hide");
-    sectionImg.src = "images/crossOth.PNG";
+    sectionImg.src = "images/crossOth.png";
     A = 0.01;
     I = 0.01;
     sectionTooltip.innerHTML = "";

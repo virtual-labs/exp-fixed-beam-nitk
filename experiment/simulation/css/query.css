@@ -9,8 +9,11 @@ em:current font size
 /* Below 1344px (Smaller Desktops) */
 /* **************************** */
 
-@media (max-width: 84em) {
-}
+/* @media (max-width: 84em) {
+  .graph-div{
+    margin-bottom: 75px;
+  }
+} */
 
 /* **************************** */
 /* Below 1200px (Lanscape Tablets) */
