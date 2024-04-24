@@ -279,7 +279,7 @@ h1 {
 } */
 
 .graph-div{
-  height: 300px;
+  height: 260px;
   margin-bottom: 20px;
 }
 #canvas-container {
@@ -364,6 +364,15 @@ h1 {
 #graphscreen2 {
   border-top: 1px solid var(--clr-title-background);
 }
+
+/* #graphscreen1,
+#graphscreen2 {
+  height: 270px;
+  width: 100%;
+} */
+
+
+
 /* **********VARIABLES**************** */
 #variables {
   display: flex;

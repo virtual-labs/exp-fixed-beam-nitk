@@ -332,7 +332,7 @@ const setMediaQueries = function (ctx) {
     scaleY = 0.5;
   } else {
     // originalX = canvas.width / 4 - 20;
-    scaleX = 0.3;
+    scaleX = 0.5;
     scaleY = 0.5;
   }
   ctx.canvas.width = document.documentElement.clientWidth * scaleX;
@@ -473,6 +473,9 @@ const draw = function () {
 //   graphctx2.font = "2rem Comic sans MS";
 //   graphctx2.fillText("\u03C9d= " + wd.toFixed(3) + "rad/s", 245, 270);
 // }
+
+
+
 function generateGraph() {
   // Graph 1
   let graph1X = setMediaQueries(graphctx1);
@@ -526,7 +529,7 @@ function generateGraph() {
   graphctx2.rotate(-Math.PI / 2);
   graphctx2.fillText("Amplitude", 170, 5);
   graphctx2.restore();
-  graphctx2.fillText("Frequency(rad/s)", 10, 260);
+  graphctx2.fillText("Frequency(rad/s)", 10, 247);
   graphctx2.strokeStyle = "#800080";
   graphctx2.lineWidth = 1;
   graphctx2.moveTo(350, 345);
