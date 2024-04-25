@@ -131,7 +131,8 @@ var mediaQuery1 = window.matchMedia("screen and (max-width: 540px)");
 var mediaQuery2 = window.matchMedia("screen and (max-width: 704px)");
 var mediaQuery3 = window.matchMedia("screen and (max-width: 820px)");
 var mediaQuery4 = window.matchMedia("screen and (max-width: 1025px)");
-var mediaQuery5 = window.matchMedia("screen and (max-width: 1440px)");
+var mediaQuery5 = window.matchMedia("screen and (max-width: 1200px)");
+var mediaQuery6 = window.matchMedia("screen and (max-width: 1440px)");
 var scaleX = 0.5;
 var scaleY = 0.5;
 
@@ -327,7 +328,11 @@ const setMediaQueries = function (ctx) {
     originalX = canvas.width / 4 - 10;
     scaleY = 0.5;
   } else if (mediaQuery5.matches) {
-    scaleX = 0.6;
+    scaleX = 0.8;
+    originalX = canvas.width / 4 - 10;
+    scaleY = 0.7;
+  }else if (mediaQuery6.matches) {
+    scaleX = 0.5;
     originalX = canvas.width / 4 - 10;
     scaleY = 0.5;
   } else {
@@ -505,8 +510,8 @@ function generateGraph() {
   graphctx1.strokeStyle = "green";
   graphctx1.lineWidth = 1;
   while (i < graphCanvas1.width) {
-    graphctx1.lineTo(i + 20, 125 - (0.9 * actdisplace(0.003 * i)) / 5);
-    graphctx1.moveTo(i + 20, 125 - (0.9 * actdisplace(0.003 * i)) / 5);
+    graphctx1.lineTo(i + 20, 125 - (0.9 * actdisplace(0.00006 * i)) / 5);
+    graphctx1.moveTo(i + 20, 125 - (0.9 * actdisplace(0.00006 * i)) / 5);
     i += 0.01;
   }
   graphctx1.stroke();

@@ -279,8 +279,9 @@ h1 {
 } */
 
 .graph-div{
-  height: 260px;
+  height: 270px;
   margin-bottom: 20px;
+ 
 }
 #canvas-container {
   display: flex;
