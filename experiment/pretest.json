@@ -72,10 +72,10 @@
     {
       "question": "The natural frequency of a system with mass m damping c and stiffness k is given by _____",
       "answers": {
-        "a": "(k/c)<sup>0.5</sup>",
-        "b": "(k/c)<sup>0.45</sup>",
-        "c": "(k/c)<sup>0.25</sup>",
-        "d": "(k/c)<sup>0.15</sup>"
+        "a": "(k/m)<sup>0.5</sup>",
+        "b": "(k/m)<sup>0.45</sup>",
+        "c": "(k/m)<sup>0.25</sup>",
+        "d": "(k/m)<sup>0.15</sup>"
       },
       "explanations": {
         "a": "",
